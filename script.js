@@ -1,3 +1,6 @@
+const button = document.getElementById("button");
+const audioElement = document.getElementById("audio");
+
 // VoiceRSS Javascript SDK
 const VoiceRSS = {
   speech: function (e) {
@@ -101,3 +104,33 @@ const VoiceRSS = {
     throw "The browser does not support HTTP request";
   },
 };
+
+// function test() {
+//   VoiceRSS.speech({
+//     key: "ad8e7433b7dd4ce98b509dd0830f3420",
+//     src: "Hello, Granny!",
+//     hl: "en-us",
+//     v: "Linda",
+//     r: 0,
+//     c: "mp3",
+//     f: "44khz_16bit_stereo",
+//     ssml: false,
+//   });
+// }
+// test();
+
+// Get Jokes fro Joke API
+async function getJokes() {
+  const apiUrl =
+    "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+if(data.setup){
+    
+}  } catch (error) {
+    // Catch Errors
+    console.log("whoops", error);
+  }
+}
+getJokes();
